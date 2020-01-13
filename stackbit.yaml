@@ -1,0 +1,59 @@
+stackbitVersion: ~0.2.0
+ssgName: custom
+publishDir: exampleSite/public
+buildCommand: cd exampleSite && hugo --gc --baseURL "/" --themesDir ../.. && cd ..
+pagesDir: exampleSite/content
+staticDir: exampleSite/static
+uploadDir: images
+dataDir: exampleSite
+
+models:
+  basicpage:
+      type: page
+      label: Basic Page
+      match: '*.md'
+      fields:
+        - type: string
+          name: title
+          label: Title
+          description: The title of the page.
+        - type: date
+          name: date
+          label: Create Date
+        - type: string
+          name: author
+          label: Author
+  post:
+    type: page
+    label: Post
+    folder: post
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: date
+        name: date
+        label: Create Date
+      - type: string
+        name: author
+        label: Author
+      - type: image
+        name: cover
+        label: Cover Image
+      - type: list
+        name: tags
+        label: Post Tags
+        items:
+          type: string
+      - type: list
+        name: keywords
+        label: Post Keywords
+        items:
+          type: string
+      - type: string
+        name: description
+        label: description
+      - type: boolean
+        name: showFullContent
+        label: Show Full Content
+  
